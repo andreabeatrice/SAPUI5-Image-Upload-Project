@@ -1,0 +1,10 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <Dialog id="helloDialog" title="Auto-cropping your image...">
+
+    <HBox justifyContent="Center" alignItems="Center">
+			<BusyIndicator size="2em" />
+		</HBox>
+   </Dialog>
+</core:FragmentDefinition>

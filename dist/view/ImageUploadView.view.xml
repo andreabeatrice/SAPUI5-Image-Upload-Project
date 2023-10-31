@@ -1,0 +1,89 @@
+<mvc:View controllerName="imageuploadproject.controller.ImageUploadView"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+	xmlns:editor="sap.suite.ui.commons.imageeditor"
+    displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <l:VerticalLayout width="100%">
+	 <l:BlockLayout id="EditCandidateProfileFragment_BlockLayoutElement" background="Dashboard">
+            <l:BlockLayoutRow id="EditCandidateProfileFragment_BlockLayoutFirstRow" >
+                <l:BlockLayoutCell id="EditCandidateProfileFragment_GeneralInformationCell"
+					width="2"
+                    titleLevel="H4">
+					<HBox width="100%">
+						<VBox width="70%" class="sapUiMediumMarginEnd">
+							<editor:ImageEditorContainer id="editor" 
+								enabledButtons="Crop"
+								mode="Crop"
+								class="sapUiMediumMarginEnd sapUiMediumMarginBottom">
+								<editor:ImageEditor id="imageEd" 
+									loaded="onImageLoaded"
+									/>
+
+								<!-- loaded="onImageLoaded" 
+									keepResizeAspectRatio="true"
+									mode="CropEllipse" 
+									scaleCropArea="true" -->
+								<editor:customToolbarControls>
+									<u:FileUploader
+										id="fileUploader"
+										name="myFileUpload"
+										width="40%"
+										sendXHR="true"
+										tooltip="Upload your file to the local server"
+										uploadComplete="handleUploadComplete"
+										change="handleValueChange"
+										typeMissmatch="handleTypeMissmatch"
+										style="Emphasized"
+										fileType="jpg,png,jpeg,gif,bmp"
+										placeholder="Choose a file for Upload...">
+											<u:parameters>
+												
+											</u:parameters>
+										</u:FileUploader>
+									<Button
+										text="Upload File"
+										type="Accept"
+										press="handleUploadPress"/>
+									<!-- <Button type="Emphasized" text="Save As" press="onSaveAsPress" blocked="{/blocked}"/> -->
+								</editor:customToolbarControls>
+								<editor:customRectangleCropItems>
+									<editor:CustomSizeItem width="1" height="1" label="1:1" relative="true"/>
+								</editor:customRectangleCropItems>
+								<editor:customEllipseCropItems>
+									<editor:CustomSizeItem width="1" height="1" label="1:1" relative="true"/>
+									<editor:CustomSizeItem width="2" height="1" label="2:1" relative="true"/>
+								</editor:customEllipseCropItems>
+							</editor:ImageEditorContainer>
+							
+						</VBox>
+						<VBox width="30%" class="sapUiMediumMarginEnd">
+							<Title level="H3" text="Preview of Profile Picture:" />
+							<Image id="img" width="100px"/>
+						</VBox>
+					</HBox>
+					<HBox width="60%">
+						<MessageStrip
+							class="sapUiMediumMarginTop"
+							id="problemInfoStrip"
+							text=""
+							showIcon="true"
+							showCloseButton="false"
+							enableFormattedText="true">
+						</MessageStrip>
+
+						
+					</HBox>
+
+					
+
+					
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+		</l:BlockLayout>
+		
+	</l:VerticalLayout>
+    </Page>
+</mvc:View>
